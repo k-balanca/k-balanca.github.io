@@ -227,7 +227,7 @@
 
     /* ── Footer ── */
     footer {
-      background-color: var(--dark);
+      background-color: rgba(0,0,0,0.2);
       color: rgba(255,255,255,.6);
       font-size: .82rem;
       text-align: center;
