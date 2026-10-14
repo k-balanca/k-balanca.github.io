@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plateforme de streaming Laravel – Portfolio de Kinali Balança</title>
+  <style>
+    :root { --accent: #2f5fd0; --text: #1d2433; --muted: #5b6475; --bg: #f6f7fb; --card: #ffffff; --border: #e2e5ee; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+    nav { background: var(--card); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+    nav a { color: var(--text); text-decoration: none; font-size: 0.95rem; }
+    nav a:hover { color: var(--accent); }
+    main { max-width: 860px; margin: 0 auto; padding: 32px 20px 48px; }
+    h1 { font-size: 2rem; margin: 0 0 6px; }
+    h2 { font-size: 1.25rem; margin: 32px 0 10px; }
+    .subtitle { color: var(--muted); margin: 0 0 20px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px; padding: 0; list-style: none; }
+    .tags li { background: #e8eefc; color: var(--accent); padding: 3px 12px; border-radius: 999px; font-size: 0.85rem; font-weight: 600; margin: 0; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+    .btn { display: inline-block; padding: 10px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; border: 1px solid var(--accent); }
+    .btn.primary { background: var(--accent); color: #fff; }
+    .btn.secondary { background: transparent; color: var(--accent); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; }
+    .card > :first-child { margin-top: 0; }
+    .card > :last-child { margin-bottom: 0; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 6px; }
+    footer { color: var(--muted); font-size: 0.85rem; text-align: center; padding: 0 20px 32px; }
+ 
+    /* Carrousel */
+    .carousel { position: relative; margin-bottom: 8px; }
+    .slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; border-radius: 12px; border: 1px solid var(--border); background: var(--card); scrollbar-width: none; }
+    .slides::-webkit-scrollbar { display: none; }
+    .slide { flex: 0 0 100%; scroll-snap-align: start; margin: 0; }
+    .slide img { width: 100%; height: auto; display: block; }
+    .slide figcaption { color: var(--muted); font-size: 0.9rem; padding: 10px 14px; border-top: 1px solid var(--border); }
+    .arrow { position: absolute; top: calc(50% - 30px); transform: translateY(-50%); width: 42px; height: 42px; border-radius: 50%; border: none; background: rgba(29, 36, 51, 0.7); color: #fff; font-size: 1.3rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .arrow:hover, .arrow:focus-visible { background: var(--accent); }
+    .arrow.prev { left: 10px; }
+    .arrow.next { right: 10px; }
+    .dots { display: flex; justify-content: center; gap: 8px; margin-top: 10px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; border: none; padding: 0; background: #c3c9d8; cursor: pointer; }
+    .dot[aria-current="true"] { background: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html">Accueil</a>
+    <a href="projet-laravel.html"><strong>Projet Laravel</strong></a>
+    <a href="TP_Lycee.html">Travaux au lycée</a>
+    <a href="TP_Stage.html">Travaux en stage</a>
+    <a href="competences.html">Compétences</a>
+  </nav>
+
+  <main>
+    <h1>Plateforme de streaming (type Netflix)</h1>
+    <p class="subtitle">Application web développée avec le framework Laravel</p>
+
+    <ul class="tags">
+      <li>PHP</li>
+      <li>Laravel</li>
+      <li>MVC</li>
+      <li>Eloquent ORM</li>
+      <li>Blade</li>
+      <li>MySQL</li>
+      <li>Git</li>
+    </ul>
+
+    <div class="buttons">
+      <a class="btn primary" href="https://github.com/k-balanca/Projet_SiteStreaming" target="_blank" rel="noopener">Voir le code sur GitHub</a>
+    </div>
+
+    <section class="carousel" aria-roledescription="carrousel" aria-label="Captures d'écran de l'application">
+      <div class="slides" id="slides" tabindex="0">
+        <figure class="slide">
+          <img src="../images/Acceuil_site_streaming.png" alt="Page d'accueil avec le catalogue de films">
+          <figcaption>Page d'accueil</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="../images/catalogue_film.png" alt="Page de connexion">
+          <figcaption>Catalogue de films</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="../images/page_admin.png" alt="Page d'inscription">
+          <figcaption>Page Admin</figcaption>
+        </figure>
+      </div>
+      <button class="arrow prev" type="button" aria-label="Écran précédent">&#8249;</button>
+      <button class="arrow next" type="button" aria-label="Écran suivant">&#8250;</button>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <h2>Le projet en bref</h2>
+    <div class="card">
+      <p>Application web de type plateforme de streaming, inspirée du fonctionnement de Netflix. Elle permet aux utilisateurs de consulter un catalogue de films, de gérer leur compte et de personnaliser leur expérience grâce à des listes de films à retrouver plus tard.</p>
+    </div>
+
+    <h2>Fonctionnalités principales</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Compte utilisateur</strong> : inscription, connexion et authentification.</li>
+        <li><strong>Catalogue de films</strong> : affichage des informations de chaque film (titre, description, image, etc.).</li>
+        <li><strong>Favoris</strong> : ajout de films à sa liste de favoris.</li>
+        <li><strong>« Regarder plus tard »</strong> : sauvegarde de films à visionner ultérieurement.</li>
+      </ul>
+    </div>
+
+    <h2>Ce que j'ai réalisé</h2>
+    <div class="card">
+      <ul>
+        <li>Développement de l'application avec <strong>Laravel</strong>, selon l'architecture <strong>MVC</strong> : routes, contrôleurs et modèles.</li>
+        <li>Mise en place du <strong>système d'authentification</strong> des utilisateurs.</li>
+        <li>Conception de la <strong>base de données</strong> : utilisateurs, films, favoris et liste « regarder plus tard ».</li>
+        <li>Interactions avec la base de données via l'<strong>ORM Eloquent</strong>.</li>
+        <li>Création de l'interface utilisateur avec les vues <strong>Blade</strong>.</li>
+      </ul>
+    </div>
+
+    <h2>Difficultés rencontrées</h2>
+    <div class="card">
+      <ul>
+        <li>Prise en main de l’ORM Eloquent. Au début du projet, j’ai eu du mal à gérer la base de données avec Eloquent : comprendre comment les modèles correspondent aux tables et comment lier les données entre elles (utilisateurs, films, favoris, liste « regarder plus tard »).
+</li>
+        <li>Ce que j’ai fait : j’ai lu la documentation Laravel et j’ai testé les requêtes pas à pas, jusqu’à comprendre le fonctionnement des modèles et des relations.</li>
+      </ul>
+    </div>
+
+    <h2>Ce que ce projet m'a appris</h2>
+    <div class="card">
+      <p>Ce projet m’a permis de comprendre concrètement le fonctionnement d’un framework MVC : comment les routes, les contrôleurs, les modèles et les vues Blade travaillent ensemble. J’ai aussi appris à concevoir une base de données avec ses relations (utilisateurs, films, favoris, liste « regarder plus tard ») et à la manipuler avec Eloquent, ce qui était difficile au début. Enfin, j’ai mis en place une authentification, ce qui m’a sensibilisée à la gestion des comptes utilisateurs. Je souhaite maintenant approfondir le déploiement de l’application.</p>
+    </div>
+  </main>
+
+  <footer>
+    Portfolio de Kinali Balança
+  </footer>
+
+</body>
+</html>
